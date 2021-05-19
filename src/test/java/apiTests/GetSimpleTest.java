@@ -29,14 +29,4 @@ public class GetSimpleTest {
                 then().
                 assertThat().body("places.'place name'", hasItem("Beverly Hills"));
     }
-
-    @DataProvider(name="zipAndPlaces")
-    public static Object[][] zipCodesAndPlaces(){
-        return new Object[][]{
-                {"us", "90210", "Beverly Hills"},
-                {"us","12345","Schenectady"},
-                {"ca","B2R","Waverley"},
-                {"nl","1001","Amsterdam"}
-        };
-    }
 }

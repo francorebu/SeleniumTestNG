@@ -20,6 +20,12 @@ To execute test by command line
 is located and then enter in command line: 
 mvn clean test -Dtest=HelpSupportTest#helpSupportTest 
 
+To run only api tests:
+1)mvn clean test -Dtest=apiTests.*Test
+
+To run ui Tests:
+1)mvn clean test -Dtest=uitests.*Test
+
 To execute all the tests by command line:
 1)mvn clean test -Dtest=*
 
