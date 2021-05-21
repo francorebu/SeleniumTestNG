@@ -2,16 +2,15 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import utils.JavaScript;
 import utils.SelectUtils;
-import utils.Wait;
+import utils.UiUtils;
 
 public class AddUserPage {
     WebDriver driver;
     SelectUtils selectUtils;
     JavaScript js;
-    Wait wait;
+    UiUtils uiUtils;
 
     private By userRole        = By.id("systemUser_userType");
     private By employeeName    = By.id("systemUser_employeeName_empName");
@@ -25,7 +24,7 @@ public class AddUserPage {
         this.driver      = driver;
         this.selectUtils = new SelectUtils(driver);
         this.js          = new JavaScript(driver);
-        this.wait        = new Wait(driver);
+        this.uiUtils     = new UiUtils(driver);
     }
 
     public void enterUserInfo(String role, String empName,String userName,String status, String pass, String confPass){
@@ -39,7 +38,7 @@ public class AddUserPage {
     }
 
     public void selectUserType(String type){
-        wait.forElementVisible(userRole);
+        uiUtils.waitForElementVisible(userRole);
         selectUtils.selectByVisibleText(userRole,type);
     }
 

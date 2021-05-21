@@ -3,19 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.JavaScript;
-import utils.Wait;
+import utils.UiUtils;
 
 public class FooterPage {
     WebDriver driver;
     private JavaScript javaScript;
-    private Wait wait;
+    private UiUtils uiUtils;
 
     private By footer = By.xpath("//*[@id='footer']//*[contains(@href,'orangehrm.com')]");
 
     public FooterPage(WebDriver driver){
-        this.driver = driver;
+        this.driver     = driver;
         this.javaScript = new JavaScript(driver);
-        this.wait = new Wait(driver);
+        this.uiUtils    = new UiUtils(driver);
     }
 
     public void scrollToFooter(){
@@ -25,6 +25,6 @@ public class FooterPage {
 
     public boolean verifyFooterIsVisible(){
         this.scrollToFooter();
-        return wait.forElementVisible(footer);
+        return uiUtils.waitForElementVisible(footer);
     }
 }

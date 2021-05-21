@@ -2,20 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.Wait;
+import utils.UiUtils;
 
 public class SupportPage {
     WebDriver driver;
-    private Wait wait;
+    private UiUtils uiUtils;
 
     private By helpPotalButton= By.xpath("//*[@Value='Help Portal']");
 
     public SupportPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new Wait(driver);
+        this.driver  = driver;
+        this.uiUtils = new UiUtils(driver);
     }
 
     public boolean isHelpPortalVisible(){
-        return wait.forElementVisible(helpPotalButton);
+        return uiUtils.waitForElementVisible(helpPotalButton);
     }
 }

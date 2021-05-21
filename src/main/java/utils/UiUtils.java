@@ -8,20 +8,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class Wait {
+public class UiUtils {
 
     WebDriver driver;
     WebDriverWait wait;
-
     WebElement elem;
     List <WebElement> elements;
+    int numberOfElements;
 
-    public Wait(WebDriver driver){
+    public UiUtils(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(this.driver, 15);
     }
 
-    public boolean forElementVisible(By element){
+    public boolean elementExist(By element){
+        try{
+            numberOfElements = driver.findElements(element).size();
+            if(numberOfElements>=1){
+                return true;
+            }
+        }catch (Exception e){
+            return false;
+        }
+        return false;
+    }
+
+    public boolean waitForElementVisible(By element){
         try {
             elem = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
             return true;
@@ -30,11 +42,20 @@ public class Wait {
         }
     }
 
-    public void forElementPresent(By element){
+    public boolean waitForElementClickable(By element){
+        try {
+            elem = wait.until(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
+
+    public void waitForElementPresent(By element){
         elem = wait.until(ExpectedConditions.presenceOfElementLocated(element));
     }
 
-    public boolean forElementNotVisible(By element){
+    public boolean WaitForElementNotVisible(By element){
         try{
             wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
             return true;

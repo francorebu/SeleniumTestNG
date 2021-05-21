@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class GetSimpleTest {
+public class GetWithSimpleHamMatchersTest {
 
     @Test
     public void getZippoPlace_statusCode() {

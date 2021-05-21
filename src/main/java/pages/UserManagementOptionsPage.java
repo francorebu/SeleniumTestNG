@@ -3,19 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Actionutils;
-import utils.Wait;
+import utils.UiUtils;
 
 public class UserManagementOptionsPage {
     WebDriver driver;
     Actionutils actionUtils;
-    Wait wait;
+    UiUtils uiUtils;
 
     private By users = By.id("menu_admin_viewSystemUsers");
 
     public UserManagementOptionsPage(WebDriver driver){
         this.driver = driver;
         this.actionUtils = new Actionutils(driver);
-        this.wait = new Wait(driver);
+        this.uiUtils     = new UiUtils(driver);
     }
 
     public void selectUsers(){
@@ -24,12 +24,12 @@ public class UserManagementOptionsPage {
     }
 
     public void moveToUsers(){
-        wait.forElementVisible(users);
+        uiUtils.waitForElementClickable(users);
         actionUtils.hoverOverElement(users);
     }
 
     public void clickOnUsers(){
-        wait.forElementVisible(users);
+        uiUtils.waitForElementVisible(users);
         driver.findElement(users).click();
     }
 

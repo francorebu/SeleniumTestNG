@@ -3,10 +3,10 @@ import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
-public class PostTest {
+public class PostWithStringBodyTest {
 
     @Test
-    public void postTest(){
+    public void postWithStringBodyTest(){
        given().
             body("{\"name\": \"morpheus\",\"job\": \"leader\"}").log().body().
        when().

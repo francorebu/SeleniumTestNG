@@ -7,10 +7,11 @@ public class SearchPersonTest extends BaseTest {
 
     @Test
     public void searchPerson(){
-        String fullName = "Lisa Andrews";
         loginPage.loginUser("Admin","admin123");
+        mainMenuPage.manageUsers();
+        String employeeName = customerList.getFirstEmployeeName();
         mainMenuPage.clickOnDirectory();
-        searchDirectoryPage.searchPerson(fullName);
-        assertEquals(resultsTablePage.getFirstResultName(), fullName);
+        searchDirectoryPage.searchPerson(employeeName);
+        assertEquals(resultsTablePage.getFirstResultName(), employeeName);
     }
 }

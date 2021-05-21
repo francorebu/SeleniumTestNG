@@ -2,27 +2,33 @@ package apiTests;
 
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
+import pojos.Registration;
 
 import java.io.File;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class PostRegisterUserfromPayloadTest {
+public class PostWithPojoSerializationTest {
+    private Registration registration;
 
-    File file;
-    String payload;
+    public PostWithPojoSerializationTest(){
+        registration = new Registration();
+    }
 
     @Test
-    public void postRegisterUserfromPayload(){
-        file = new File("resources/Payloads/registerUser.json");
+    public void postRegisterUserfromPojo(){
+        registration.setEmail("eve.holt@reqres.in");
+        registration.setPassword("pistol");
+
         given().
                 contentType(ContentType.JSON).
-                body(file).
+                body(registration).log().body().
         when().
                 post("https://reqres.in/api/register").
         then().
                 assertThat().body(matchesJsonSchemaInClasspath("schemas/resgisterUserResponseSchema.json")).
-                and().statusCode(200).log().body();
+                and().statusCode(200).log().all();
     }
+
 }

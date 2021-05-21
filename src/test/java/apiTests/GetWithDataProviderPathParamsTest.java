@@ -4,10 +4,10 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class DataProviderTest {
+public class GetWithDataProviderPathParamsTest {
 
     @Test(dataProvider = "zipAndPlaces")
-    public void getZippoPlace(String country, String zip,String place) {
+    public void getWithDataProviderPathParamsTest(String country, String zip,String place) {
         given().
                 pathParam("countryCode", country).
                 pathParam("zipCode", zip).

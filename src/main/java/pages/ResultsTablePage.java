@@ -15,7 +15,7 @@ public class ResultsTablePage {
 
     public ResultsTablePage(WebDriver driver){
         this.driver = driver;
-        this.js = new JavaScript(driver);
+        this.js     = new JavaScript(driver);
     }
 
     public int getRowNum(){

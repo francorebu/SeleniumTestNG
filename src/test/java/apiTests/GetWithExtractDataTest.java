@@ -5,24 +5,17 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-public class ExtractDataTest {
+public class GetWithExtractDataTest {
 
-    private static RequestSpecification requestSpec;
-    private static ResponseSpecification responseSpec;
+    private RequestSpecification requestSpec;
+    private ResponseSpecification responseSpec;
 
-    @BeforeClass
-    public static void createRequestSpecification(){
+    public GetWithExtractDataTest(){
         requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://zippopotam.us").build();
-    }
-
-    @BeforeClass
-    public static void createResponseSpecification(){
         responseSpec = new ResponseSpecBuilder().
                 expectStatusCode(200).
                 expectContentType(ContentType.JSON).build();
@@ -38,12 +31,10 @@ public class ExtractDataTest {
         then().
                 spec(responseSpec).
                 extract().path("places[0].'place name'");
-
         Assert.assertEquals(placeName,"Beverly Hills");
     }
 
-    @Test
-    public String testZipAndCityBodyValidation(){
+    public String getBody(){
         String resp=
         given().
                spec(requestSpec).
@@ -57,6 +48,6 @@ public class ExtractDataTest {
 
     @Test
     public void bodyValidation(){
-        Assert.assertTrue(testZipAndCityBodyValidation().contains("Beverly Hills"));
+        Assert.assertTrue(getBody().contains("Beverly Hills"));
     }
 }

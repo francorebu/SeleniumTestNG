@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.request;
 
-public class PostCreateUserFromPayloadTest {
+public class PostWithPayloadFileTest {
     File file;
     String payload;
 
@@ -37,9 +37,9 @@ public class PostCreateUserFromPayloadTest {
         Response response=
         given().
                 body(jsonData).log().body().
-                when().
+        when().
                 post("https://reqres.in/api/users").
-                then().
+        then().
                 assertThat().statusCode(201).log().all().
                 and().contentType(ContentType.JSON).extract().response();
         System.out.println("Response is : " + response);

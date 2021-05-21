@@ -8,32 +8,27 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-public class SpecBuilderTest {
+public class GetWithSpecBuilderTest {
 
-    private static RequestSpecification requestSpec;
-    private static ResponseSpecification responseSpec;
+    private  RequestSpecification requestSpec;
+    private  ResponseSpecification responseSpec;
 
-    @BeforeTest
-    public static void createRequestSpecification(){
+    public GetWithSpecBuilderTest(){
         requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://zippopotam.us").build();
-    }
-
-    @BeforeTest
-    public static void createResponseSpecification(){
         responseSpec = new ResponseSpecBuilder().
                 expectStatusCode(200).
                 expectContentType(ContentType.JSON).build();
     }
 
     @Test
-    public void getZippoPlace_statusCode() {
+    public void getWithSpecBuilderTest() {
         given().
                 spec(requestSpec).
         when().
                 get("us/90210").
         then().
-                spec(responseSpec);
+                spec(responseSpec).log().body();
     }
 
 }

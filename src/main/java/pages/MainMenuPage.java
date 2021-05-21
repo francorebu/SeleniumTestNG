@@ -2,13 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.Wait;
+import utils.UiUtils;
 
 public class MainMenuPage {
-    Wait wait;
+    private UiUtils uiUtils;
     private WebDriver driver;
     private AdminOptionsPage adminOptionsPage;
     private UserManagementOptionsPage userManagementOptionsPage;
+
     private By admin       = By.id("menu_admin_viewAdminModule");
     private By pim         = By.id("menu_pim_viewPimModule");
     private By leave       = By.id("menu_leave_viewLeaveModule");
@@ -22,10 +23,10 @@ public class MainMenuPage {
     private By buzz        = By.id("menu_buzz_viewBuzz");
 
     public MainMenuPage(WebDriver driver){
-        this.driver = driver;
-        this.adminOptionsPage = new AdminOptionsPage(driver);
+        this.driver                    = driver;
+        this.adminOptionsPage          = new AdminOptionsPage(driver);
         this.userManagementOptionsPage = new UserManagementOptionsPage(driver);
-        this.wait = new Wait(driver);
+        this.uiUtils                   = new UiUtils(driver);
     }
 
     public void manageUsers() {
@@ -35,7 +36,7 @@ public class MainMenuPage {
     }
 
     public void clickOnAdmin(){
-        wait.forElementVisible(admin);
+        uiUtils.waitForElementVisible(admin);
         driver.findElement(admin).click();
     }
 

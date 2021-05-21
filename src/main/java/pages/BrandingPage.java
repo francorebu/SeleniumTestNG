@@ -3,19 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.JavaScript;
-import utils.Wait;
+import utils.UiUtils;
 
 public class BrandingPage {
     WebDriver driver;
-    Wait wait;
+    UiUtils uiUtils;
     JavaScript js;
 
     private By welcomeUser = By.id("welcome");
 
     public BrandingPage(WebDriver driver){
-        this.driver = driver ;
-        this.wait = new Wait(driver);
-        this.js = new JavaScript(driver);
+        this.driver  = driver ;
+        this.uiUtils = new UiUtils(driver);
+        this.js      = new JavaScript(driver);
     }
 
     public String getWelcomeText() {

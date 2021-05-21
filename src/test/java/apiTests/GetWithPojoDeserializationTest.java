@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pojos.Location;
 import static io.restassured.RestAssured.given;
 
-public class PojoDeserializationTest {
+public class GetWithPojoDeserializationTest {
 
     Location location;
 

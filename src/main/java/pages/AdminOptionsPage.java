@@ -2,11 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.Wait;
+import utils.UiUtils;
 
 public class AdminOptionsPage {
     WebDriver driver;
-    Wait wait;
+    UiUtils uiUtils;
 
     private By userManagement = By.id("menu_admin_UserManagement");
     private By job            = By.id("menu_admin_Job");
@@ -16,12 +16,12 @@ public class AdminOptionsPage {
     private By configuration  = By.id("menu_admin_Configuration");
 
     public AdminOptionsPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new Wait(driver);
+        this.driver  = driver;
+        this.uiUtils = new UiUtils(driver);
     }
 
     public void  clickOnUserManagement(){
-        wait.forElementVisible(userManagement);
+        uiUtils.waitForElementVisible(userManagement);
         driver.findElement(userManagement).click();
     }
 
