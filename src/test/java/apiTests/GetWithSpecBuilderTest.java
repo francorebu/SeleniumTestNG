@@ -1,4 +1,5 @@
 package apiTests;
+import base.BaseApiTest;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -8,14 +9,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-public class GetWithSpecBuilderTest {
+public class GetWithSpecBuilderTest extends BaseApiTest {
 
     private  RequestSpecification requestSpec;
     private  ResponseSpecification responseSpec;
 
     public GetWithSpecBuilderTest(){
         requestSpec = new RequestSpecBuilder().
-                setBaseUri("http://zippopotam.us").build();
+                setBaseUri(baseZippo).build();
         responseSpec = new ResponseSpecBuilder().
                 expectStatusCode(200).
                 expectContentType(ContentType.JSON).build();

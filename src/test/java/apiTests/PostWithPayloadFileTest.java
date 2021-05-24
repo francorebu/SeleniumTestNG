@@ -1,5 +1,6 @@
 package apiTests;
 
+import base.BaseApiTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -14,7 +15,7 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.request;
 
-public class PostWithPayloadFileTest {
+public class PostWithPayloadFileTest extends BaseApiTest {
     File file;
     String payload;
 
@@ -22,10 +23,9 @@ public class PostWithPayloadFileTest {
     public void postCreateUserFromPayload(){
         file = new File("resources/Payloads/createUser.json");
         given().
-                contentType(ContentType.JSON).
                 body(file).log().body().
         when().
-                post("https://reqres.in/api/users").
+                post( baseReqres + "/users").
         then().
                 assertThat().statusCode(201).
                 and().contentType(ContentType.JSON);
@@ -38,7 +38,7 @@ public class PostWithPayloadFileTest {
         given().
                 body(jsonData).log().body().
         when().
-                post("https://reqres.in/api/users").
+                post(baseReqres + "/users").
         then().
                 assertThat().statusCode(201).log().all().
                 and().contentType(ContentType.JSON).extract().response();

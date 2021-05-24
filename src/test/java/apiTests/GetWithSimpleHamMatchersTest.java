@@ -1,15 +1,16 @@
 package apiTests;
+import base.BaseApiTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class GetWithSimpleHamMatchersTest {
+public class GetWithSimpleHamMatchersTest extends BaseApiTest {
 
     @Test
     public void getZippoPlace_statusCode() {
                 when().
-                     get("http://zippopotam.us/us/90210").
+                     get(baseZippo + "/us/90210").
                 then().
                      assertThat().statusCode(200);
     }
@@ -17,7 +18,7 @@ public class GetWithSimpleHamMatchersTest {
     @Test
     public void getZippoPlace_size1() {
         when().
-                get("http://zippopotam.us/us/90210").
+                get(baseZippo + "/us/90210").
                 then().
                 assertThat().body("places.'place name'", hasSize(1)).log().body();
     }
@@ -25,7 +26,7 @@ public class GetWithSimpleHamMatchersTest {
     @Test
     public void getZippoPlace_hasItem() {
         when().
-                get("http://zippopotam.us/us/90210").
+                get(baseZippo + "/us/90210").
                 then().
                 assertThat().body("places.'place name'", hasItem("Beverly Hills"));
     }

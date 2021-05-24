@@ -1,15 +1,14 @@
 package apiTests;
 
+import base.BaseApiTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import pojos.Registration;
 
-import java.io.File;
-
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class PostWithPojoSerializationTest {
+public class PostWithPojoSerializationTest extends BaseApiTest {
     private Registration registration;
 
     public PostWithPojoSerializationTest(){
@@ -25,9 +24,9 @@ public class PostWithPojoSerializationTest {
                 contentType(ContentType.JSON).
                 body(registration).log().body().
         when().
-                post("https://reqres.in/api/register").
+                post(baseReqres + "/register").
         then().
-                assertThat().body(matchesJsonSchemaInClasspath("schemas/resgisterUserResponseSchema.json")).
+                assertThat().body(matchesJsonSchemaInClasspath("schemas/registerUserResponseSchema.json")).
                 and().statusCode(200).log().all();
     }
 

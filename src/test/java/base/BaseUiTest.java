@@ -15,7 +15,7 @@ import utils.TimeUtils;
 import java.io.File;
 import java.io.IOException;
 
-public class BaseTest {
+public class BaseUiTest {
     protected WebDriver driver;
     protected TimeUtils tUtils;
 

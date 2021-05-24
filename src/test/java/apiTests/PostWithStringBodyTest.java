@@ -1,16 +1,17 @@
 package apiTests;
+import base.BaseApiTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
-public class PostWithStringBodyTest {
+public class PostWithStringBodyTest extends BaseApiTest {
 
     @Test
-    public void postWithStringBodyTest(){
+    public void postWithStringBodyTest (){
        given().
             body("{\"name\": \"morpheus\",\"job\": \"leader\"}").log().body().
        when().
-            post("https://reqres.in/api/users").
+            post(baseReqres + "/users").
        then().
             assertThat().statusCode(201).log().all().and().contentType(ContentType.JSON);
     }

@@ -1,11 +1,11 @@
 package uitests;
 
-import base.BaseTest;
+import base.BaseUiTest;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class InvalidUserLoginTest extends BaseTest {
+public class InvalidUserLoginUiTest extends BaseUiTest {
 
     @Test
     public void invalidUserLoginTest(){

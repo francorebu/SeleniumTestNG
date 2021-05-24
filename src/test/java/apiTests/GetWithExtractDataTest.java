@@ -1,4 +1,5 @@
 package apiTests;
+import base.BaseApiTest;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -8,14 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-public class GetWithExtractDataTest {
+public class GetWithExtractDataTest extends BaseApiTest {
 
     private RequestSpecification requestSpec;
     private ResponseSpecification responseSpec;
 
     public GetWithExtractDataTest(){
         requestSpec = new RequestSpecBuilder().
-                setBaseUri("http://zippopotam.us").build();
+                setBaseUri(baseZippo).build();
         responseSpec = new ResponseSpecBuilder().
                 expectStatusCode(200).
                 expectContentType(ContentType.JSON).build();
@@ -34,7 +35,7 @@ public class GetWithExtractDataTest {
         Assert.assertEquals(placeName,"Beverly Hills");
     }
 
-    public String getBody(){
+    public String getResponseBody(){
         String resp=
         given().
                spec(requestSpec).
@@ -48,6 +49,6 @@ public class GetWithExtractDataTest {
 
     @Test
     public void bodyValidation(){
-        Assert.assertTrue(getBody().contains("Beverly Hills"));
+        Assert.assertTrue(getResponseBody().contains("Beverly Hills"));
     }
 }

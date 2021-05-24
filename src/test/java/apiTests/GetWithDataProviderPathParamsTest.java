@@ -1,10 +1,11 @@
 package apiTests;
+import base.BaseApiTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class GetWithDataProviderPathParamsTest {
+public class GetWithDataProviderPathParamsTest extends BaseApiTest {
 
     @Test(dataProvider = "zipAndPlaces")
     public void getWithDataProviderPathParamsTest(String country, String zip,String place) {
@@ -12,7 +13,7 @@ public class GetWithDataProviderPathParamsTest {
                 pathParam("countryCode", country).
                 pathParam("zipCode", zip).
         when().
-                get("http://zippopotam.us/{countryCode}/{zipCode}").
+                get(baseZippo + "/{countryCode}/{zipCode}").
         then().
                 assertThat().body("places[0].'place name'", equalTo(place)).log().all();
     }

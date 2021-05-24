@@ -1,9 +1,9 @@
 package uitests;
-import base.BaseTest;
+import base.BaseUiTest;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
-public class SearchPersonTest extends BaseTest {
+public class SearchPersonUiTest extends BaseUiTest {
 
     @Test
     public void searchPerson(){

@@ -1,9 +1,9 @@
 package uitests;
-import base.BaseTest;
+import base.BaseUiTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ValidateFooterTest extends BaseTest {
+public class ValidateFooterUiTest extends BaseUiTest {
 
     @Test
     public void validateFooterTest(){

@@ -1,10 +1,10 @@
 package uitests;
 
-import base.BaseTest;
+import base.BaseUiTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateUserTest extends BaseTest {
+public class CreateUserUiTest extends BaseUiTest {
     String randomUser;
 
     @Test

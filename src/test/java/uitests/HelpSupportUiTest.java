@@ -1,10 +1,10 @@
 package uitests;
 
-import base.BaseTest;
+import base.BaseUiTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HelpSupportTest extends BaseTest {
+public class HelpSupportUiTest extends BaseUiTest {
 
     @Test
     public void helpSupportTest() throws Throwable {
