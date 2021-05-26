@@ -1,6 +1,6 @@
 package pojos;
 
-public class Registration {
+public class Credentials {
 
     private String email;
     private String password;

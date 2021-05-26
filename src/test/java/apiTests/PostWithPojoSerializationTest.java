@@ -3,26 +3,26 @@ package apiTests;
 import base.BaseApiTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
-import pojos.Registration;
+import pojos.Credentials;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class PostWithPojoSerializationTest extends BaseApiTest {
-    private Registration registration;
+    private Credentials credentials;
 
     public PostWithPojoSerializationTest(){
-        registration = new Registration();
+        credentials = new Credentials();
     }
 
     @Test
     public void postRegisterUserfromPojo(){
-        registration.setEmail("eve.holt@reqres.in");
-        registration.setPassword("pistol");
+        credentials.setEmail("eve.holt@reqres.in");
+        credentials.setPassword("pistol");
 
         given().
                 contentType(ContentType.JSON).
-                body(registration).log().body().
+                body(credentials).log().body().
         when().
                 post(baseReqres + "/register").
         then().
