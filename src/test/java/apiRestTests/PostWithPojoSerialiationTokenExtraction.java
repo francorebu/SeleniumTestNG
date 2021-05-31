@@ -1,4 +1,4 @@
-package apiTests;
+package apiRestTests;
 
 import base.BaseApiTest;
 import io.restassured.http.ContentType;
@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import pojos.Credentials;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
 public class PostWithPojoSerialiationTokenExtraction extends BaseApiTest {

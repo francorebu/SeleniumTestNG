@@ -1,10 +1,8 @@
-package apiTests;
+package apiRestTests;
 
 import base.BaseApiTest;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -13,7 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.request;
 
 public class PostWithPayloadFileTest extends BaseApiTest {
     File file;
@@ -21,7 +18,7 @@ public class PostWithPayloadFileTest extends BaseApiTest {
 
     @Test
     public void postCreateUserFromPayload(){
-        file = new File("resources/Payloads/createUser.json");
+        file = new File("resources/jsonPayloads/createUser.json");
         given().
                 body(file).log().body().
         when().
@@ -33,7 +30,7 @@ public class PostWithPayloadFileTest extends BaseApiTest {
 
     @Test
     public void postCreateUserFromPayload2() throws IOException {
-        byte[] jsonData = Files.readAllBytes(Paths.get("resources/Payloads/createUser.json"));
+        byte[] jsonData = Files.readAllBytes(Paths.get("resources/jsonPayloads/createUser.json"));
         Response response=
         given().
                 body(jsonData).log().body().
