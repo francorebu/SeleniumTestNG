@@ -1,4 +1,4 @@
-package apiTests;
+package apiRestTests;
 import base.BaseApiTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;

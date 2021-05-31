@@ -1,4 +1,4 @@
-package apiTests;
+package apiRestTests;
 import base.BaseApiTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;

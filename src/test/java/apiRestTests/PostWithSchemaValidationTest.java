@@ -1,4 +1,4 @@
-package apiTests;
+package apiRestTests;
 
 import base.BaseApiTest;
 import io.restassured.http.ContentType;
@@ -15,7 +15,7 @@ public class PostWithSchemaValidationTest extends BaseApiTest {
 
     @Test
     public void postWithSchemaValidationTest(){
-        file = new File("resources/Payloads/registerUser.json");
+        file = new File("resources/jsonPayloads/registerUser.json");
         given().
                 contentType(ContentType.JSON).
                 body(file).

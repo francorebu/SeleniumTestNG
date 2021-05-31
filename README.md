@@ -21,10 +21,10 @@ is located and then enter in command line:
 mvn clean test -Dtest=HelpSupportTest#helpSupportTest 
 
 To run only api tests:
-1)mvn clean test -Dtest=apiTests.*Test
+1)mvn clean test -Dtest=apiRestTests.*Test
 
 To run ui Tests:
-1)mvn clean test -Dtest=uitests.*Test
+1)mvn clean test -Dtest=uiTests.*Test
 
 To execute all the tests by command line:
 1)mvn clean test -Dtest=*

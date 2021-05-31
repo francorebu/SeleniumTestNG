@@ -1,14 +1,14 @@
-package apiTests;
+package apiRestTests;
 
 import base.BaseApiTest;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
-public class GetWithContentTypeValidationTest extends BaseApiTest {
+public class GetWithContentTypeXmlValidationTest extends BaseApiTest {
 
     @Test
-    public void getWithContentTypeValidationTest(){
+    public void getWithContentTypeXmlValidationTest(){
         given().
                 accept(ContentType.XML).
         when().

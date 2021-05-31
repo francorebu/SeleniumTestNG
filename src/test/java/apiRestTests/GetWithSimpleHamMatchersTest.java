@@ -1,6 +1,5 @@
-package apiTests;
+package apiRestTests;
 import base.BaseApiTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
