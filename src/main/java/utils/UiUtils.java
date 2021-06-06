@@ -22,15 +22,16 @@ public class UiUtils {
     }
 
     public boolean elementExist(By element){
+        boolean exist = false;
         try{
             numberOfElements = driver.findElements(element).size();
             if(numberOfElements>=1){
-                return true;
+                exist = true;
             }
         }catch (Exception e){
-            return false;
+            exist = false;
         }
-        return false;
+        return exist;
     }
 
     public boolean waitForElementVisible(By element){
