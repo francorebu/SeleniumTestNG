@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utils.JavaScript;
 import utils.UiUtils;
 
@@ -23,9 +24,9 @@ public class LoginPage {
     }
 
     public void loginUser(String user, String pass){
-        this.enterUserName(user);
-        this.enterPassword(pass);
-        this.clickOnLogin();
+        enterUserName(user);
+        enterPassword(pass);
+        clickOnLogin();
     }
 
     public void enterUserName(String username){

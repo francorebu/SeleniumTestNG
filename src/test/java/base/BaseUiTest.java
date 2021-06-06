@@ -12,12 +12,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import utils.TimeUtils;
+import utils.WindowManager;
+
 import java.io.File;
 import java.io.IOException;
 
 public class BaseUiTest {
     protected WebDriver driver;
     protected TimeUtils tUtils;
+    protected WindowManager windowManager;
 
     protected LoginPage loginPage;
     protected BrandingPage brandingPage;
@@ -38,9 +41,9 @@ public class BaseUiTest {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
         driver = new ChromeDriver(getChromeOptions());
-        goToLoginPage();
         instantiatePages();
         instantiateUtils();
+        openApplication();
     }
 
     public void instantiatePages(){
@@ -58,20 +61,22 @@ public class BaseUiTest {
         addUserPage               = new AddUserPage(driver);
         footerPage                = new FooterPage(driver);
         supportPage               = new SupportPage(driver);
+
     }
 
     public void instantiateUtils(){
         tUtils = new TimeUtils();
+        windowManager = new WindowManager(driver);
     }
 
     @BeforeMethod
-    public void goToLoginPage(){
-        driver.get("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
+    public void openApplication(){
+        windowManager.open("https://opensource-demo.orangehrmlive.com/index.php/auth/login");
     }
 
     @AfterMethod
     public void recordFailure(ITestResult result){
-        if (ITestResult.FAILURE == result.getStatus()) {
+        if (result.getStatus() == ITestResult.FAILURE ) {
             TakesScreenshot camera = (TakesScreenshot) driver;
             File screenshot = camera.getScreenshotAs(OutputType.FILE);
             try {
