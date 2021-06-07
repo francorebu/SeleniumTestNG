@@ -41,6 +41,18 @@ public class JavaScript {
         jsExecutor.executeScript(script,element);
     }
 
+    public void click(By elem){
+        element = driver.findElement(elem) ;
+        script = "arguments[0].click();";
+        jsExecutor.executeScript(script,element);
+    }
+
+    public void setText(By elem, String text){
+        element = driver.findElement(elem) ;
+        script = "arguments[0].value='" + text + "'";
+        jsExecutor.executeScript(script,element);
+    }
+
     public void scrollDown(){
         script = "window.scroll(0,document.body.scrollHeight)";
         jsExecutor.executeScript(script);
