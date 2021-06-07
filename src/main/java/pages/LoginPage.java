@@ -31,15 +31,15 @@ public class LoginPage {
 
     public void enterUserName(String username){
         js.waitForPageLoad();
-        driver.findElement(userName).sendKeys(username);
+        js.setText(userName,username);
     }
 
     public void enterPassword(String pass){
-        driver.findElement(password).sendKeys(pass);
+        js.setText(password,pass);
     }
 
     public void clickOnLogin(){
-        driver.findElement(loginButton).click();
+        js.click(loginButton);
     }
 
     public void clickOnForgotPass(){
