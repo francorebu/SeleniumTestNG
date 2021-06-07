@@ -6,13 +6,14 @@ import org.testng.annotations.Test;
 
 public class CreateUserUiTest extends BaseUiTest {
     String randomUser;
+    String employeeName;
 
     @Test
     public void createUser(){
         randomUser = "Rebecca" + tUtils.getUniqueValue();
         loginPage.loginUser("Admin","admin123");
         mainMenuPage.manageUsers();
-        String employeeName = customerList.getFirstEmployeeName();
+        employeeName = customerList.getFirstEmployeeName();
         customerList.clickOnAddButton();
         addUserPage.enterUserInfo("ESS",employeeName,randomUser,"Enabled", "12345678", "12345678");
         systemUsers.searchUser(randomUser);
