@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class WelcomeMenuPage {
-    private WebDriver driver;
+    WebDriver driver;
 
-    private By about   = By.id("aboutDisplayLink");
-    private By support = By.xpath("//*[contains(@href,'support')]");
-    private By logout  = By.xpath("//*[contains(@href,'logout')]");
+    By about   = By.id("aboutDisplayLink");
+    By support = By.xpath("//*[contains(@href,'support')]");
+    By logout  = By.xpath("//*[contains(@href,'logout')]");
 
     public WelcomeMenuPage(WebDriver driver){
         this.driver = driver;

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ResetPasswordPage {
     WebDriver driver;
 
-    private By resetButton = By.xpath("//*[@id='btnSearchValues']");
+    By resetButton = By.xpath("//*[@id='btnSearchValues']");
 
     public ResetPasswordPage (WebDriver driver){
         this.driver = driver;

@@ -6,9 +6,9 @@ import utils.UiUtils;
 
 public class SupportPage {
     WebDriver driver;
-    private UiUtils uiUtils;
+    UiUtils uiUtils;
 
-    private By helpPotalButton= By.xpath("//*[@Value='Help Portal']");
+    By helpPotalButton= By.xpath("//*[@Value='Help Portal']");
 
     public SupportPage(WebDriver driver){
         this.driver  = driver;
