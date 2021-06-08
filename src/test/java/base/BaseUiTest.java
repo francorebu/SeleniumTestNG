@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class BaseUiTest {
     protected WebDriver driver;
-    protected TimeUtils tUtils;
+    protected TimeUtils timeUtils;
     protected WindowManager windowManager;
 
     protected LoginPage loginPage;
@@ -36,14 +36,21 @@ public class BaseUiTest {
     protected AddUserPage addUserPage;
     protected FooterPage footerPage;
     protected SupportPage supportPage;
+    protected HeroPage heroPage;
 
     @BeforeClass
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-        driver = new ChromeDriver(getChromeOptions());
+        //System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
+        //driver = new ChromeDriver(getChromeOptions());
+        setChromeConfiguration();
         instantiatePages();
         instantiateUtils();
         openApplication();
+    }
+
+    public void setChromeConfiguration(){
+        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
+        driver = new ChromeDriver(getChromeOptions());
     }
 
     public void instantiatePages(){
@@ -61,11 +68,11 @@ public class BaseUiTest {
         addUserPage               = new AddUserPage(driver);
         footerPage                = new FooterPage(driver);
         supportPage               = new SupportPage(driver);
-
+        heroPage                  = new HeroPage(driver);
     }
 
     public void instantiateUtils(){
-        tUtils = new TimeUtils();
+        timeUtils = new TimeUtils();
         windowManager = new WindowManager(driver);
     }
 
