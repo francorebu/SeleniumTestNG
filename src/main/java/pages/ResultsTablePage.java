@@ -11,7 +11,7 @@ public class ResultsTablePage {
     WebDriver driver;
     JavaScript js;
 
-    private By tableRows    = By.xpath("//*[@id='resultTable']//ul");
+    By tableRows    = By.xpath("//*[@id='resultTable']//ul");
 
     public ResultsTablePage(WebDriver driver){
         this.driver = driver;

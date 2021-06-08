@@ -7,10 +7,10 @@ import utils.UiUtils;
 
 public class FooterPage {
     WebDriver driver;
-    private JavaScript javaScript;
-    private UiUtils uiUtils;
+    JavaScript javaScript;
+    UiUtils uiUtils;
 
-    private By footer = By.xpath("//*[@id='footer']//*[contains(@href,'orangehrm.com')]");
+    By footer = By.xpath("//*[@id='footer']//*[contains(@href,'orangehrm.com')]");
 
     public FooterPage(WebDriver driver){
         this.driver     = driver;

@@ -9,7 +9,7 @@ public class CreateUserUiTest extends BaseUiTest {
     String employeeName;
 
     @Test
-    public void createUser(){
+    public void createUserTest(){
         randomUser = "Rebecca" + tUtils.getUniqueValue();
         loginPage.loginUser("Admin","admin123");
         mainMenuPage.manageUsers();

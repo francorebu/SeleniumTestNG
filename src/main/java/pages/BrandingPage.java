@@ -10,7 +10,7 @@ public class BrandingPage {
     UiUtils uiUtils;
     JavaScript js;
 
-    private By welcomeUser = By.id("welcome");
+    By welcomeUser = By.id("welcome");
 
     public BrandingPage(WebDriver driver){
         this.driver  = driver ;

@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 public class SearchPersonUiTest extends BaseUiTest {
 
     @Test
-    public void searchPerson(){
+    public void searchPersonTest(){
         loginPage.loginUser("Admin","admin123");
         mainMenuPage.manageUsers();
         String employeeName = customerList.getFirstEmployeeName();

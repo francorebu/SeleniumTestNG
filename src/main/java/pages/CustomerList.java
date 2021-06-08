@@ -13,10 +13,10 @@ public class CustomerList {
     JavaScript js;
     WebTableUtils webTableUtils;
 
-    private By addButton     = By.id("btnAdd");
-    private By resultsTable  = By.xpath("//*[@id='resultTable']");
-    private By userNames     = By.xpath("//td/a");
-    private By employeeNames = By.xpath("//tr/td[4]");
+    By addButton     = By.id("btnAdd");
+    By resultsTable  = By.xpath("//*[@id='resultTable']");
+    By userNames     = By.xpath("//td/a");
+    By employeeNames = By.xpath("//tr/td[4]");
 
     public CustomerList(WebDriver driver){
         this.driver        = driver;
