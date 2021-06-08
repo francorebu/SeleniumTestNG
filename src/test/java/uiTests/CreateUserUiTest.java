@@ -10,7 +10,7 @@ public class CreateUserUiTest extends BaseUiTest {
 
     @Test
     public void createUserTest(){
-        randomUser = "Rebecca" + tUtils.getUniqueValue();
+        randomUser = "Rebecca" + timeUtils.getUniqueValue();
         loginPage.loginUser("Admin","admin123");
         mainMenuPage.manageUsers();
         employeeName = customerList.getFirstEmployeeName();

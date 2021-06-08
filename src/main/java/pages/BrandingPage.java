@@ -10,7 +10,8 @@ public class BrandingPage {
     UiUtils uiUtils;
     JavaScript js;
 
-    By welcomeUser = By.id("welcome");
+    By questionCircle = By.xpath("//*[contains(@class,'question-circle')]");
+    By welcomeUser    = By.id("welcome");
 
     public BrandingPage(WebDriver driver){
         this.driver  = driver ;
@@ -23,8 +24,13 @@ public class BrandingPage {
         return driver.findElement(welcomeUser).getText();
     }
 
-    public void clickOnUser(){
-        driver.findElement(welcomeUser).click();
+    public void clickOnQuestionCircle(){
+        js.waitForPageLoad();
+        driver.findElement(questionCircle).click();
     }
 
+    public void clickOnUser(){
+        js.waitForPageLoad();
+        driver.findElement(welcomeUser).click();
+    }
 }
