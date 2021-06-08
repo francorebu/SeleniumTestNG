@@ -11,11 +11,11 @@ public class LoginPage {
     UiUtils uiUtils;
     JavaScript js;
 
-    private By userName       = By.xpath("//*[@id='txtUsername']");
-    private By password       = By.name("txtPassword");
-    private By loginButton    = By.id("btnLogin");
-    private By forgotPassword = By.xpath("//*[contains(@href,'PasswordReset')]");
-    private By errorMessage   = By.id("spanMessage");
+    By userName       = By.xpath("//*[@id='txtUsername']");
+    By password       = By.name("txtPassword");
+    By loginButton    = By.id("btnLogin");
+    By forgotPassword = By.xpath("//*[contains(@href,'PasswordReset')]");
+    By errorMessage   = By.id("spanMessage");
 
     public LoginPage (WebDriver driver){
         this.driver  = driver;

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class SearchDirectoryPage {
     WebDriver driver;
 
-    private By name         = By.xpath("//*[contains(@id,'empName')]");
-    private By searchButton = By.id("searchBtn");
-    private By resetButton  = By.id("resetBtn");
+    By name         = By.xpath("//*[contains(@id,'empName')]");
+    By searchButton = By.id("searchBtn");
+    By resetButton  = By.id("resetBtn");
 
     public SearchDirectoryPage(WebDriver driver){
         this.driver = driver;

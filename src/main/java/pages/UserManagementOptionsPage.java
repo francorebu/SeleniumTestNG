@@ -10,7 +10,7 @@ public class UserManagementOptionsPage {
     Actionutils actionUtils;
     UiUtils uiUtils;
 
-    private By users = By.id("menu_admin_viewSystemUsers");
+    By users = By.id("menu_admin_viewSystemUsers");
 
     public UserManagementOptionsPage(WebDriver driver){
         this.driver = driver;

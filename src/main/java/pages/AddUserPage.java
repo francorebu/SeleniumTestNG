@@ -12,13 +12,13 @@ public class AddUserPage {
     JavaScript js;
     UiUtils uiUtils;
 
-    private By userRole        = By.id("systemUser_userType");
-    private By employeeName    = By.id("systemUser_employeeName_empName");
-    private By userName        = By.id("systemUser_userName");
-    private By status          = By.id("systemUser_status");
-    private By password        = By.id("systemUser_password");
-    private By confirmPassword = By.id("systemUser_confirmPassword");
-    private By saveButton      = By.id("btnSave");
+    By userRole        = By.id("systemUser_userType");
+    By employeeName    = By.id("systemUser_employeeName_empName");
+    By userName        = By.id("systemUser_userName");
+    By status          = By.id("systemUser_status");
+    By password        = By.id("systemUser_password");
+    By confirmPassword = By.id("systemUser_confirmPassword");
+    By saveButton      = By.id("btnSave");
 
     public AddUserPage(WebDriver driver){
         this.driver      = driver;

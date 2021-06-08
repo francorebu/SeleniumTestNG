@@ -8,8 +8,8 @@ public class SystemUsers {
     WebDriver driver;
     JavaScript js;
 
-    private By userName     = By.id("searchSystemUser_userName");
-    private By searchButton = By.id("searchBtn");
+    By userName     = By.id("searchSystemUser_userName");
+    By searchButton = By.id("searchBtn");
 
     public SystemUsers(WebDriver driver){
         this.driver = driver;
