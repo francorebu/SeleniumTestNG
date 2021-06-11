@@ -15,10 +15,10 @@ public class HeroPage {
 
     By searchInput = By.xpath("//*[@id='query']");
 
-    public HeroPage(WebDriver driver){
-        this.driver = driver;
-        this.uiUtils = new UiUtils(driver);
-        this.javaScript = new JavaScript(driver);
+    public HeroPage (WebDriver driver)  {
+        this.driver        = driver;
+        this.uiUtils       = new UiUtils(driver);
+        this.javaScript    = new JavaScript(driver);
     }
 
     public void switchToTab(){
