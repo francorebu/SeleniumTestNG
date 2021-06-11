@@ -28,4 +28,5 @@ public class WindowManager {
     public void open(String url){
         navigate.to(url);
     }
+
 }
