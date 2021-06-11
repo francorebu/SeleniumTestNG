@@ -37,11 +37,12 @@ public class BaseUiTest {
     protected FooterPage footerPage;
     protected SupportPage supportPage;
     protected HeroPage heroPage;
+    protected CategoriesPage categoriesPage;
+    protected AddOnsPage addOnsPage;
+    protected RequestAddOnPage requestAddOnPage;
 
     @BeforeClass
-    public void setUp(){
-        //System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-        //driver = new ChromeDriver(getChromeOptions());
+    public void setUp() {
         setChromeConfiguration();
         instantiatePages();
         instantiateUtils();
@@ -53,7 +54,7 @@ public class BaseUiTest {
         driver = new ChromeDriver(getChromeOptions());
     }
 
-    public void instantiatePages(){
+    public void instantiatePages() {
         loginPage                 = new LoginPage(driver);
         brandingPage              = new BrandingPage(driver);
         resetPasswordPage         = new ResetPasswordPage(driver);
@@ -69,9 +70,12 @@ public class BaseUiTest {
         footerPage                = new FooterPage(driver);
         supportPage               = new SupportPage(driver);
         heroPage                  = new HeroPage(driver);
+        categoriesPage            = new CategoriesPage(driver);
+        addOnsPage                = new AddOnsPage(driver);
+        requestAddOnPage          = new RequestAddOnPage(driver);
     }
 
-    public void instantiateUtils(){
+    public void instantiateUtils() {
         timeUtils = new TimeUtils();
         windowManager = new WindowManager(driver);
     }
